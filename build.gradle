@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.8.1'
+}
+
+group 'com.epam'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '17'
+compileJava.options.encoding = 'UTF-8'
+
+
+def cucumberVersion = '6.11.0'
+def junitVersion = '5.7.2'
+def selenideVersion = '6.11.0'
+def picocontainer = '6.11.0'
+def lombokVersion = '1.18.20'
+def assertJVersion = '3.20.2'
+def allureVersion = '2.14.0'
+def slf4j = '1.7.32'
+def logbackVersion = '1.2.5'
+def javaFakerVersion = '1.0.2'
+def ownerVersion = '1.0.12'
+def junitSuiteVersion = '1.9.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "com.codeborne:selenide:${selenideVersion}"
+    implementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    implementation "io.qameta.allure:allure-selenide:${allureVersion}"
+    implementation "io.qameta.allure:allure-cucumber6-jvm:${allureVersion}"
+    implementation "org.slf4j:slf4j-api:${slf4j}"
+    implementation "ch.qos.logback:logback-core:${logbackVersion}"
+    implementation "ch.qos.logback:logback-classic:${logbackVersion}"
+    implementation "com.github.javafaker:javafaker:${javaFakerVersion}"
+    implementation "org.aeonbits.owner:owner-java8:${ownerVersion}"
+    implementation "org.junit.platform:junit-platform-suite:${junitSuiteVersion}"
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testImplementation "io.cucumber:cucumber-picocontainer:${picocontainer}"
+    testImplementation "org.assertj:assertj-core:${assertJVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+}
+
+tasks {
+    test {
+        tasks.withType(JavaCompile).tap {
+            configureEach {
+                options.encoding = 'UTF-8'
+            }
+        }
+        useJUnitPlatform()
+        ignoreFailures = true
+        systemProperties(project.gradle.startParameter.systemPropertiesArgs)
+    }
+}
+
+allure {
+    version = allureVersion
+    autoconfigure = false
+    aspectjweaver = true
+    configuration = "testImplementation"
+}
