@@ -1,13 +1,10 @@
-package steps;
+package com.epam.steps;
 
+import com.epam.pages.BoardsPage;
+import com.epam.pages.LoginPage;
+import com.epam.pages.MainPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.BoardsPage;
-import pages.LoginPage;
-import pages.MainPage;
-import utils.PropertyUtils;
-
-import static com.codeborne.selenide.Selenide.open;
 
 public class LogInLogOutSteps extends AbstractStep {
 
@@ -23,7 +20,7 @@ public class LogInLogOutSteps extends AbstractStep {
 
     @When("^Opened main page$")
     public void openMainPage() {
-        open(PropertyUtils.getBaseUrl());
+        mainPage.openHomePage();
     }
 
     @When("^I click log in$")

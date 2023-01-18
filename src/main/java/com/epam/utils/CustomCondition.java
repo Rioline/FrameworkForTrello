@@ -1,4 +1,4 @@
-package utils;
+package com.epam.utils;
 
 import com.codeborne.selenide.Condition;
 

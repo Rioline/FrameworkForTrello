@@ -37,6 +37,7 @@ dependencies {
     implementation "com.github.javafaker:javafaker:${javaFakerVersion}"
     implementation "org.aeonbits.owner:owner-java8:${ownerVersion}"
     implementation "org.junit.platform:junit-platform-suite:${junitSuiteVersion}"
+    testImplementation "org.aeonbits.owner:owner-java8:${ownerVersion}"
     testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"

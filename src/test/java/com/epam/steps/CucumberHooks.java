@@ -1,6 +1,6 @@
-package steps;
+package com.epam.steps;
 
-import hooks.WebDriverFactory;
+import com.epam.hooks.WebDriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
