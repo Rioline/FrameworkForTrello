@@ -1,11 +1,11 @@
-package pages;
+package com.epam.pages;
 
 import com.codeborne.selenide.*;
 import com.github.javafaker.Faker;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
-import static utils.CustomCondition.clickable;
+import static com.epam.utils.CustomCondition.clickable;
 
 public class BoardsPage {
 

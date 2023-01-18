@@ -1,4 +1,4 @@
-package utils;
+package com.epam.utils;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -68,5 +68,37 @@ public class PropertyUtils {
 
     public static String getUserPassword() {
         return PropertyUtils.getPropString("userPassword", "environment.properties");
+    }
+
+    public static String getBrowser() {
+        return getPropString("selenide.browser", "selenide.properties");
+    }
+
+    public static String getRemoteHost() {
+        return getPropString("selenide.remote.host", "selenide.properties");
+    }
+
+    public static String getPageLoadStrategy() {
+        return getPropString("selenide.pageLoadStrategy", "selenide.properties");
+    }
+
+    public static int getTimeout() {
+        return getPropInteger("selenide.timeout", "selenide.properties");
+    }
+
+    public static boolean isDriverManagerEnabled() {
+        return getPropBoolean("selenide.driverManagerEnabled", "selenide.properties");
+    }
+
+    public static boolean isReopenBrowserOnFail() {
+        return getPropBoolean("selenide.reopenBrowserOnFail", "selenide.properties");
+    }
+
+    public static boolean isRemoteExecution() {
+        return getPropBoolean("selenide.remote.execution", "selenide.properties");
+    }
+
+    public static boolean isHeadless() {
+        return getPropBoolean("selenide.headless", "selenide.properties");
     }
 }

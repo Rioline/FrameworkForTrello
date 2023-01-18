@@ -1,7 +1,7 @@
-package pages;
+package com.epam.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import utils.PropertyUtils;
+import com.epam.utils.PropertyUtils;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
