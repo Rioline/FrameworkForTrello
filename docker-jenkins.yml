@@ -1,0 +1,19 @@
+# To execute this docker-compose yml file use `docker-compose -f docker-jenkins.yml up`
+# To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-jenkins.yml down`
+# This operation add containers to your docker.
+# Jenkins   -  http://localhost:8080/
+# login - administrator
+# password - 12345
+
+version: '2'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+  ssh-agent:
+      image: jenkins/ssh-agent
+volumes:
+    jenkins_home:
